@@ -15,9 +15,12 @@ const UserSchema = new mongoose.Schema({ name: String, email: String });
 const User = mongoose.model('User', UserSchema);
 
 // Đường dẫn kiểm tra server
+// Thêm đoạn này để khi vào link chính không bị báo lỗi "Cannot GET /"
 app.get('/', (req, res) => {
-    res.send('Backend Node.js của Trung đã hoạt động Online!');
+    res.send('Server Node.js của Trung đã hoạt động Online!');
 });
+
+// Các API bên dưới giữ nguyên...
 
 // Các API xử lý dữ liệu
 app.get('/api/users', async (req, res) => {
