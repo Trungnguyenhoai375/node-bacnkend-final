@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 // Kết nối MongoDB
-mongoose.connect('mongodb+srv://admin:123@cluster0.v2vbc.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://admin:123@admin.j7nxp5w.mongodb.net/?appName=admin', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
