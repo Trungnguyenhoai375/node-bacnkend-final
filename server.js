@@ -7,12 +7,13 @@ app.use(cors());
 app.use(express.json());
 
 // Kết nối MongoDB
-mongoose.connect('mongodb+srv://admin:123@admin.j7nxp5w.mongodb.net/?appName=admin', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+// Sửa đoạn này: thêm chữ 'test' vào giữa .net/ và ?appName
+mongoose.connect('mongodb+srv://admin:123@admin.j7nxp5w.mongodb.net/test?retryWrites=true&w=majority', {
+useNewUrlParser: true,
+useUnifiedTopology: true
 })
 .then(() => console.log("Hệ thống đã kết nối Database thành công!"))
-.catch(err => console.error("Database vẫn báo lỗi kết nối: ", err));
+.catch(err => console.error("Vẫn lỗi kết nối: ", err));
 
 const UserSchema = new mongoose.Schema({ name: String, email: String });
 const User = mongoose.model('User', UserSchema);
