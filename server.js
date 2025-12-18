@@ -7,9 +7,12 @@ app.use(cors());
 app.use(express.json());
 
 // Kết nối MongoDB
-mongoose.connect('mongodb+srv://admin:123@cluster0.mongodb.net/test')
-  .then(() => console.log("Backend đã kết nối Database thành công!"))
-  .catch(err => console.log("Lỗi kết nối DB: ", err));
+mongoose.connect('mongodb+srv://admin:123@cluster0.v2vbc.mongodb.net/test?retryWrites=true&w=majority', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+.then(() => console.log("Hệ thống đã kết nối Database thành công!"))
+.catch(err => console.error("Database vẫn báo lỗi kết nối: ", err));
 
 const UserSchema = new mongoose.Schema({ name: String, email: String });
 const User = mongoose.model('User', UserSchema);
